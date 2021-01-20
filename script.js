@@ -3,7 +3,11 @@ var button = document.querySelectorAll(".item")
 	step2 = document.getElementById("step2"),
 	score = document.getElementById("updateScore");
 	
-	score.innerHTML = localStorage.getItem('savedScore');
+	if(!localStorage.getItem("savedScore") == 0 ){
+		score.innerHTML = localStorage.getItem('savedScore');
+	}
+	
+	console.log(localStorage.getItem('savedScore'));
 
 function showSelected(selected) {
 	var userOptions = document.querySelectorAll('.userOption');
@@ -116,4 +120,8 @@ document.getElementById('showRules').addEventListener('click', function(){
 document.getElementById('closeModal').addEventListener('click', function() {
 	document.getElementById('modalBG').style.display = 'none';
 	document.getElementById('rulesPopout').style.display = 'none';
+});
+
+document.getElementById('resetScore').addEventListener('click', function() {
+	localStorage.clear();
 });
