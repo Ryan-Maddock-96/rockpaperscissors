@@ -1,0 +1,352 @@
+body, html {
+	padding: 0;
+	margin:0;
+}
+
+body {
+	min-height: 100vh;
+	background-image: radial-gradient(circle, #203755, #141539);
+	background-repeat: none;
+	font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+#modalBG {
+	position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background-color: rgb(1 34 90 / 0.5);
+    left: 0;
+    top: 0;
+}
+	
+.container {
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+	
+.content {
+	flex-grow: 1;
+	padding: 50px 0;
+	width: 900px;
+	
+}
+
+.header {
+	display:flex;
+	padding: 20px 40px;
+	border: 3px solid #fff;
+	border-radius: 10px;
+	width: 100%;
+	box-sizing: border-box;
+
+}
+
+.logo {
+	flex-grow: 1;
+}
+
+.scoreCard {
+	background: #fff;
+	width: 150px;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.titleTxt {
+color: hsl(229, 64%, 46%);
+margin-top: 15px;
+}
+
+.score {
+	color: hsl(229, 25%, 31%);
+	font-size: 3em;
+	font-weight: bold;
+}
+
+.playArea {
+	flex-grow: 1;
+	width: 900px;
+	height: 400px;
+	padding-top: 50px;
+	position:relative;
+	display: flex;
+	justify-content: center;
+	box-sizing: border-box;
+}
+#step1 {
+	position: relative;
+	width: 425px;
+	background-image: url('./images/bg-triangle.svg');
+	background-repeat: no-repeat;
+	background-position: center 100px;
+	z-index: 2;
+}
+#step2 {
+	opacity: 0;
+	flex-grow: 1;
+	display: flex;
+	justify-content: space-between;
+}
+
+#step2 > div {
+	display: flex;
+	justify-content: center;
+	width: 300px;
+	position: relative;
+}
+
+#step2 .userOption, #step2 .compOption {
+	left: unset;
+	right: unset;
+}
+
+.title {
+	font-size: 20px;
+	margin: 20px 0;
+	color: #fff;
+}
+
+#step2 .userOption, #step2 .compOption {
+	top: 110px;
+	height: 200px;
+    width: 200px;
+}
+
+#results {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.circle {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  opacity: 0;
+  animation: scaleIn 3s infinite cubic-bezier(.36, .11, .89, .32);
+  top: 110px;
+  z-index: -1;
+}
+
+.circle.paper, .circle.option_0 {
+	background-color: #5571f5;
+}
+
+.circle.scissors, .circle.option_1 {
+	background-color: #eca921;
+}
+
+.circle.rock, .circle.option_2 {
+	background-color: #dd3f5c;
+}
+
+h1 {
+	color: #fff;
+}
+
+.btn {
+	cursor: pointer;
+	padding: 10px 50px;
+	background: #fff;
+	border-radius: 10px;
+	color: hsl(229, 25%, 31%);
+}
+
+.btn:hover {
+	color:  hsl(229, 64%, 46%);
+}
+
+.item, .userOption, .compOption {
+	height: 125px;
+	width: 125px;
+	border-radius: 50%;
+	background: #fff;
+	background-repeat: no-repeat;
+	background-position: center;
+	position: absolute;
+}
+.item {
+	cursor: pointer;
+}
+.item:before, .userOption:before, .compOption:before {
+	content: '';
+	position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: -1;
+    margin: -20px; 
+    border-radius: inherit; 
+}
+.item1 {
+	background-image: url('./images/icon-paper.svg');
+	top: 40px;
+}
+.item1:before {
+	background: linear-gradient(to right, #4865f4,#5671f5);
+}
+
+.item.item1:hover:before {
+	background: linear-gradient(to left, #4865f4,#5671f5);
+}
+
+.item2 {
+	background-image: url('./images/icon-scissors.svg');
+	top: 40px;
+	right: 0;
+}
+.item2:before {
+	background: linear-gradient(to right, #ec9e0e, #eca922);
+}
+.item.item2:hover:before {
+	background: linear-gradient(to left, #e0960e, #da9c20);
+}
+.item3 {
+	background-image: url('./images/icon-rock.svg');
+	left: calc(50% - 63px);
+	top: 275px;
+}
+.item3:before {
+	background: linear-gradient(to right, #dc2e4e, #dd405d);
+}
+.item.item3:hover:before {
+	background: linear-gradient(to left, #dc2e4e, #dd405d);
+}
+
+.fade-in {
+	-webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) forwards;
+	        animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) forwards;
+}
+
+.fade-out {
+	-webkit-animation: fade-out 1s ease-out forwards;
+	        animation: fade-out 1s ease-out forwards;
+}
+
+footer {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	color: #fff;
+	padding: 20px 0;
+	position: relative;
+}
+
+footer a {
+	color: inherit;
+	margin-left: 5px;
+}
+
+footer #showRules {
+	position: absolute;
+	right: 50px;
+	bottom: 20px;
+}
+
+.modal {
+	display: none;
+	position: absolute;
+	top: 200px;
+	left: calc(50% - 175px);
+	width: 350px;
+	height: 375px;
+	border-radius: 10px;
+	background: #fff;
+	z-index: 1000;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+.modalTitle {
+	font-size: 25px;
+	color: hsl(229, 25%, 31%);
+	padding: 20px;
+	text-align: left;
+	position: relative;
+	
+}
+
+.modal img {
+	margin: 10px auto;
+}
+
+#closeModal {
+	display: inline-block;
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	cursor: pointer;
+}
+
+#closeModal:hover {
+	color: hsl(229, 64%, 46%);
+}
+
+
+/* ----------------------------------------------
+ * Generated by Animista on 2021-1-19 14:22:53
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation fade-out
+ * ----------------------------------------
+ */
+@-webkit-keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+	  opacity: 0;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+	  opacity: 0;
+  }
+}
+/* ----------------------------------------------
+ * Generated by Animista on 2021-1-19 14:50:8
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation fade-in
+ * ----------------------------------------
+ */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(.5, .5);
+    opacity: .5;
+  }
+  to {
+    transform: scale(2.5, 2.5);
+    opacity: 0;
+  }
+}
+
