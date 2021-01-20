@@ -56,6 +56,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	position:relative;
 }
 
 .titleTxt {
@@ -67,6 +68,15 @@ margin-top: 15px;
 	color: hsl(229, 25%, 31%);
 	font-size: 3em;
 	font-weight: bold;
+}
+
+#resetScore {
+	position:absolute;
+	top: 5px;
+	right: 10px;
+	color: hsl(229, 64%, 46%);
+	text-decoration: underline;
+	font-size: 12px;
 }
 
 .playArea {

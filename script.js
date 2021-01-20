@@ -124,4 +124,5 @@ document.getElementById('closeModal').addEventListener('click', function() {
 
 document.getElementById('resetScore').addEventListener('click', function() {
 	localStorage.clear();
+	location.reload();
 });
